@@ -1,0 +1,7 @@
+{
+    "pattern": "[Timestamp] [Message Type] [Message]",
+    "timestamp_format": "yyyy-mm-dd hh-mm-ss",
+    "message_level": {
+        "INFO": "INFO", "ERROR": "ERROR", "WARN": "WARN"
+    }
+}
