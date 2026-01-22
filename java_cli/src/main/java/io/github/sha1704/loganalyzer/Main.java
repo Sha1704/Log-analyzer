@@ -1,4 +1,4 @@
-package io.github.sha1704;
+package io.github.sha1704.loganalyzer;
 
 public class Main 
 {
