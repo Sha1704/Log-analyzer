@@ -39,3 +39,11 @@
 
 # debug information files
 *.dwo
+
+# my .gitignore rules
+.vscode/
+Thumbs.db
+cpp_engine/build/
+java_cli/target/
+CMakeFiles/
+CMakeCache.txt
