@@ -1,0 +1,18 @@
+name: Backend Checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify-tools:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show tool versions
+        run: |
+          git --version
+          java -version
+          g++ --version
