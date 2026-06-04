@@ -39,5 +39,5 @@ jobs:
       - name: Verify report was created
         run: |
           cd cpp_engine/build
-          if (!(Test-Path report.json)) { exit 1 }
+          if (!(Test-Path ../tests/result.json)) { exit 1 }
           type report.json
