@@ -40,4 +40,4 @@ jobs:
         run: |
           cd cpp_engine/build
           if (!(Test-Path ../tests/result.json)) { exit 1 }
-          type report.json
+          type ../tests/result.json
