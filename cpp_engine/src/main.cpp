@@ -30,11 +30,11 @@ int main(int argc, char* argv[])
 
     while (std::getline(infile, line))
     {
-        // Skip empty lines
-        if (line.empty()) {
+        if (line.empty())
+        {
             continue;
         }
-
+      
         size_t open_bracket = line.find('[');
         size_t close_bracket = line.find(']');
 
@@ -58,16 +58,13 @@ int main(int argc, char* argv[])
             {
                 unknown_count++;
             }
-        } else {
-            unknown_count++;
-        }
+        } 
         line_count++;
     }
 
     std::ofstream outfile (output);
-    
     if (outfile.is_open())
-    { 
+    {
         outfile << "{\n";
         outfile << "\t\"total_lines\":" << line_count << ",\n";
         outfile << "\t\"level_counts\": {\n";
