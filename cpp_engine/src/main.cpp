@@ -16,6 +16,10 @@ int main(int argc, char* argv[])
 
     std::ifstream infile (input);
     int line_count = 0;
+    int info_count = 0;
+    int error_count = 0;
+    int warn_count = 0;
+    int unknown_count = 0;
     std::string line;
     
     if (!infile.is_open())
@@ -26,14 +30,39 @@ int main(int argc, char* argv[])
 
     while (std::getline(infile, line))
     {
+        std::string type = line.substr(line.find('['), (line.find(']') - line.find('[')) + 1);
+
+        if (type == "[INFO]")
+        {
+            info_count ++;
+        }
+        else if (type == "[WARN]")
+        {
+            warn_count ++;
+        }
+        else if (type == "[ERROR]")
+        {
+            error_count ++;
+        }
+        else
+        {
+            unknown_count++;
+        }
         line_count++;
     }
 
     std::ofstream outfile (output);
+    
     if (outfile.is_open())
-    {
+    { 
         outfile << "{\n";
-        outfile << "\t\"Line Count\"" << ": " << line_count << "\n";
+        outfile << "\t\"total_lines\":" << line_count << ",\n";
+        outfile << "\t\"level_counts\": {\n";
+        outfile << "\t\t\"INFO\":" << info_count << ",\n";
+        outfile << "\t\t\"WARN\":" << warn_count << ",\n";
+        outfile << "\t\t\"ERROR\":" << error_count << ",\n";
+        outfile << "\t\t\"UNKNOWN\":" << unknown_count << "\n";
+        outfile << "\t}\n";
         outfile << "}\n";
 
         std::cout << "Operation successful, results in: " <<  output << std::endl;

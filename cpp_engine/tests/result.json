@@ -1,3 +1,9 @@
 {
-	"Line Count": 9
+	"total_lines":9,
+	"level_counts": {
+		"INFO":5,
+		"WARN":1,
+		"ERROR":3,
+		"UNKNOWN":0
+	}
 }
