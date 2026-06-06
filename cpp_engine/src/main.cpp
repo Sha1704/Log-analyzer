@@ -16,6 +16,10 @@ int main(int argc, char* argv[])
 
     std::ifstream infile (input);
     int line_count = 0;
+    int info_count = 0;
+    int error_count = 0;
+    int warn_count = 0;
+    int unknown_count = 0;
     std::string line;
     
     if (!infile.is_open())
@@ -26,7 +30,6 @@ int main(int argc, char* argv[])
 
     while (std::getline(infile, line))
     {
-<<<<<<< HEAD
         if (line.empty())
         {
             continue;
@@ -51,8 +54,6 @@ int main(int argc, char* argv[])
         {
             unknown_count++;
         }
-=======
->>>>>>> parent of ac10f2b (Report log level counts in JSON output)
         line_count++;
     }
 
