@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
 	"total_lines":15,
 	"level_counts": {
 		"INFO":5,
@@ -7,7 +6,4 @@
 		"ERROR":9,
 		"UNKNOWN":0
 	}
-=======
-	"Line Count": 9
->>>>>>> parent of ac10f2b (Report log level counts in JSON output)
 }
