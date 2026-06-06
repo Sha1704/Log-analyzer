@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
     std::string config = argv[2];
 
     std::ifstream infile (input);
-    int line_count = 0;
+    int line_count = 0; // Number of lines with log messages
     int info_count = 0;
     int error_count = 0;
     int warn_count = 0;
@@ -32,7 +32,6 @@ int main(int argc, char* argv[])
     {
         // Skip empty lines
         if (line.empty()) {
-            line_count++;
             continue;
         }
 
