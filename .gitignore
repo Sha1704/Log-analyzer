@@ -47,3 +47,4 @@ cpp_engine/build/
 java_cli/target/
 CMakeFiles/
 CMakeCache.txt
+note.txt
