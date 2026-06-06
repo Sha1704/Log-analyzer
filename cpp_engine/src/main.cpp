@@ -30,22 +30,36 @@ int main(int argc, char* argv[])
 
     while (std::getline(infile, line))
     {
-        std::string type = line.substr(line.find('['), (line.find(']') - line.find('[')) + 1);
+        // Skip empty lines
+        if (line.empty()) {
+            line_count++;
+            continue;
+        }
 
-        if (type == "[INFO]")
-        {
-            info_count ++;
-        }
-        else if (type == "[WARN]")
-        {
-            warn_count ++;
-        }
-        else if (type == "[ERROR]")
-        {
-            error_count ++;
-        }
-        else
-        {
+        size_t open_bracket = line.find('[');
+        size_t close_bracket = line.find(']');
+
+        // Only process if both brackets are found
+        if (open_bracket != std::string::npos && close_bracket != std::string::npos) {
+            std::string type = line.substr(open_bracket, (close_bracket - open_bracket) + 1);
+
+            if (type == "[INFO]")
+            {
+                info_count ++;
+            }
+            else if (type == "[WARN]")
+            {
+                warn_count ++;
+            }
+            else if (type == "[ERROR]")
+            {
+                error_count ++;
+            }
+            else
+            {
+                unknown_count++;
+            }
+        } else {
             unknown_count++;
         }
         line_count++;
